@@ -8,6 +8,11 @@ app = FastAPI()
 @app.get('/')
 def index():
     return {'data': {'name': 'Blog List'}}
+    
+
+@app.get('/blog/unpublished')
+def unpublished():
+    return {'data': 'all unpublished blogs'}
 
 
 # about path

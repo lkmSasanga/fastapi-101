@@ -5,9 +5,9 @@ app = FastAPI()
 
 # decoration
 # base path
-@app.get('/')
-def index():
-    return {'data': {'name': 'Blog List'}}
+@app.get('/blog')
+def index(limit):
+    return {'data': f'{limit} blogs form db'}
     
 
 @app.get('/blog/unpublished')

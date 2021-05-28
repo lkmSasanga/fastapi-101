@@ -6,7 +6,7 @@ app = FastAPI()
 # decoration
 # base path
 @app.get('/blog')
-def index(limit, published: bool):
+def index(limit = 10, published: bool = True):
 
     if published:
         return {'data': f'{limit} published blogs form db'}

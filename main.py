@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from typing import Optional
 
 # create instance
 app = FastAPI()
@@ -6,7 +7,7 @@ app = FastAPI()
 # decoration
 # base path
 @app.get('/blog')
-def index(limit = 10, published: bool = True):
+def index(limit = 10, published: bool = True, sort: Optional[str] = None):
 
     if published:
         return {'data': f'{limit} published blogs form db'}

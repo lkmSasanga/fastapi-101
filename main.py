@@ -45,5 +45,18 @@ class Blog(BaseModel):
 def create_blog(blog: Blog):
     return {'data': f'Blog is created as {blog.title}'}
 
+inventory = {
+    1: {
+        "name": "Milk",
+        "price": 34.89,
+        "brand": "Highland"
+    }
+}
+
+@app.get('/get-item/{item_id}')
+def get_item(item_id: int):
+    return inventory[item_id]
+
+
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=9000)

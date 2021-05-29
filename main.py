@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Path
 from typing import Optional
 from pydantic import BaseModel
 import uvicorn
@@ -54,7 +54,7 @@ inventory = {
 }
 
 @app.get('/get-item/{item_id}')
-def get_item(item_id: int):
+def get_item(item_id: int = Path(None, description="This ID of the item you like to view")):
     return inventory[item_id]
 
 
